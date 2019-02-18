@@ -224,7 +224,7 @@ func GetVersion() string {
 	return currentGitHead
 }
 
-// GetVersion returns the current HEAD git commit(first 7 symbols) if .git exists
+// GetShortVersion returns the current HEAD git commit(first 7 symbols) if .git exists
 func GetShortVersion() string {
 	v := GetVersion()
 	if len(v) > 7 {

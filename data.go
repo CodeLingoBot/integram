@@ -533,7 +533,7 @@ func (chat *Chat) getData() (*chatData, error) {
 
 }
 
-// OAuthValid checks if OAuthToken for service is set
+// BotWasKickedOrStopped checks if OAuthToken for service is set
 func (chat *Chat) BotWasKickedOrStopped() bool {
 	ps, _ := chat.protectedSettings()
 

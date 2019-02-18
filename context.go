@@ -541,7 +541,7 @@ func (c *Context) EditMessagesTextWithEventID(eventID string, text string) (edit
 	return edited, err
 }
 
-// EditMessagesTextWithMessageID edit the one message text with by message BSON ID
+// EditMessageTextWithMessageID edit the one message text with by message BSON ID
 func (c *Context) EditMessageTextWithMessageID(msgID bson.ObjectId, text string) (edited int, err error) {
 	var message OutgoingMessage
 
@@ -855,7 +855,7 @@ func (c *Context) AnswerInlineQueryWithResults(res []interface{}, cacheTime int,
 	return err
 }
 
-// AnswerInlineQueryWithResults answer the inline query that triggered this request
+// AnswerInlineQueryWithResultsAndPM answer the inline query that triggered this request
 func (c *Context) AnswerInlineQueryWithResultsAndPM(res []interface{}, cacheTime int, isPersonal bool, nextOffset string, PMText string, PMParameter string) error {
 	bot := c.Bot()
 	_, err := bot.API.AnswerInlineQuery(tg.InlineConfig{IsPersonal: true, InlineQueryID: c.InlineQuery.ID, Results: res, NextOffset: nextOffset, SwitchPMText: PMText, SwitchPMParameter: PMParameter})
@@ -1011,7 +1011,7 @@ func (wc *WebhookContext) FormValue(key string) string {
 	return wc.gin.Request.PostForm.Get(key)
 }
 
-// FormValue return form data with specific key
+// QueryValue return form data with specific key
 func (wc *WebhookContext) QueryValue(key string) string {
 	err := wc.gin.Request.ParseForm()
 	if err != nil {
